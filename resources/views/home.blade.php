@@ -9,12 +9,20 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    {{ __('Estás logueado') }}
+                    {{ __('Estás logueado.') }}
+
+                    <br><br>
+
+                    <a href="{{ url('registro/create') }}">Nuevo registro</a>
+
+                    <br><br>
+
+                    Aqui saldrán los registros a su nombre.
                 </div>
             </div>
         </div>

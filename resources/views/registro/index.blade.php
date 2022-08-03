@@ -1,49 +1,61 @@
+@extends('layouts.app')
+
+@section('content')
+
 @if(Session::has('mensaje'))
 {{ Session::get('mensaje') }}
 @endif
 
-<a href="{{ url('registro/create') }}">Nuevo registro</a><br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Total de registros') }}</div>
 
-<h1>Total de registros</h1>
+                <div class="card-body">
+                    <table class="table table-light">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Id</th>
+                                <th>Usuario</th>
+                                <th>REGE</th>
+                                <th>Tiempo</th>
+                                <th>Fecha</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
 
-<table class="table table-light">
-
-    <thead class="thead-light">
-        <tr>
-            <th>Id</th>
-            <th>Usuario</th>
-            <th>REGE</th>
-            <th>Tiempo</th>
-            <th>Fecha</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach ($registros as $registro)
-        <tr>
-            <td>{{ $registro->id }}</td>
-            <td>{{ $registro->usuario }}</td>
-            <td>{{ $registro->rege }}</td>
-            <td>{{ $registro->tiempo }}</td>
-            <td>{{ $registro->fecha }}</td>
-            <td>
+                        <tbody>
+                            @foreach ($registros as $registro)
+                            <tr>
+                                <td>{{ $registro->id }}</td>
+                                <td>{{ $registro->usuario }}</td>
+                                <td>{{ $registro->rege }}</td>
+                                <td>{{ $registro->tiempo }}</td>
+                                <td>{{ $registro->fecha }}</td>
+                                <td>
 
 
-                <a href="{{ url('/registro/'.$registro->id.'/edit') }}">Editar
+                                    <a class="btn btn-success" href="{{ url('/registro/'.$registro->id.'/edit') }}">Editar</a>
 
-                </a> |
+                                    <form action="{{ url('/registro/'.$registro->id) }}" method="post">
+                                        @csrf
+                                        {{ method_field('DELETE') }}
+                                        <input type="submit" class="btn btn-primary" onclick="return confirm('¿Quieres borrar este registo?')" value="Borrar">
 
-                <form action="{{ url('/registro/'.$registro->id) }}" method="post">
-                    @csrf
-                    {{ method_field('DELETE') }}
-                    <input type="submit" onclick="return confirm('¿Quieres borrar este registo?')" value="Borrar">
+                                    </form>
 
-                </form>
+                                </td>
+                            </tr>
+                            @endforeach
 
-            </td>
-        </tr>
-        @endforeach
+                        </tbody>
 
-    </tbody>
+                    </table>
 
-</table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

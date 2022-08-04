@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empleado;
 use App\Models\Registro;
 use Illuminate\Http\Request;
 

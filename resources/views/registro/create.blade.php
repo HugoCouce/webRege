@@ -16,7 +16,7 @@
                         <div class="form-group row">
                             <label for="inputUserId" class="col-sm-2 col-form-label">Código de usuario:</label>
                             <div class="col-sm-10">
-                                <input type="text" name="usuario" value="{{ Auth::user()->id }}" class="form-control" id="inputUserId">
+                                <input type="text" name="usuario" value="{{ Auth::user()->id }}" class="form-control" id="inputUserId" readonly>
                             </div>
                         </div>
 

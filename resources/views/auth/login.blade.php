@@ -58,11 +58,11 @@
                                 </button>
 
                                 <!-- No necesitamos que los usuarios puedan recordar la contraseña. Se encargarán en el equipo de sistemas -->
-                                @if (Route::has('password.request'))
+                                <!-- @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('¿Olvidó su contraseña?') }}
                                 </a>
-                                @endif
+                                @endif -->
                             </div>
                         </div>
                     </form>

@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ __('Total de registros') }}</div>
 
@@ -35,15 +35,16 @@
                                 <td>{{ $registro->fecha }}</td>
                                 <td>
 
+                                    <div class="btn-group">
+                                        <a class="btn btn-link d-block" href="{{ url('/registro/'.$registro->id.'/edit') }}">Editar</a>
 
-                                    <a class="btn btn-success" href="{{ url('/registro/'.$registro->id.'/edit') }}">Editar</a>
+                                        <form action="{{ url('/registro/'.$registro->id) }}" method="post">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <input type="submit" class="btn btn-danger space-left" onclick="return confirm('¿Quieres borrar este registo?')" value="Borrar">
 
-                                    <form action="{{ url('/registro/'.$registro->id) }}" method="post">
-                                        @csrf
-                                        {{ method_field('DELETE') }}
-                                        <input type="submit" class="btn btn-primary" onclick="return confirm('¿Quieres borrar este registo?')" value="Borrar">
-
-                                    </form>
+                                        </form>
+                                    </div>
 
                                 </td>
                             </tr>

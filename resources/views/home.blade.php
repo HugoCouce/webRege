@@ -35,7 +35,7 @@
                                 <th>Usuario</th>
                                 <th>REGE</th>
                                 <th>Tiempo</th>
-                                <th>Fecha</th>
+                                <th>Fecha (a/m/d)</th>
                                 <th>Operaciones</th>
                             </tr>
                         </thead>
@@ -43,14 +43,23 @@
                         <tbody>
 
                             @foreach ($registros as $registro)
+
                             @if ($registro->usuario == Auth::user()->id)
+
+                            @php
+                            $fecha = substr($registro->fecha, 0, 10);
+                            $fecha2 = substr($registro->fecha, 0, 7);
+                            $resultado = str_replace("-", "/", $fecha2);
+
+                            if ($resultado == date('Y/m')) {
+                            @endphp
+
                             <tr>
                                 <td>{{ $registro->usuario }}</td>
                                 <td>{{ $registro->rege }}</td>
                                 <td>{{ $registro->tiempo }}</td>
-                                <td>{{ $registro->fecha }}</td>
+                                <td><?php echo $fecha; ?></td>
                                 <td>
-
                                     <div class="btn-group">
                                         <a class="btn btn-link d-block" href="{{ url('/registro/'.$registro->id.'/edit') }}">Editar</a>
 
@@ -61,10 +70,16 @@
 
                                         </form>
                                     </div>
-
                                 </td>
                             </tr>
+
+                            @php
+                            }else{
+                            }
+                            @endphp
+
                             @endif
+
                             @endforeach
 
                         </tbody>

@@ -33,3 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('registro', RegistroController::class)->middleware('auth'); /* Impedimos la entrada en el registro sin estar logueado */
 Route::resource('auth', RegistroController::class)->middleware(!'auth'); /* Impedimos loguear a los ya logueados */
+
+Route::group(['middleware' => ['admin']], function(){
+    Route::get('registro', [RegistroController::class, 'index'])->name('registro');
+});

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Pagination\Paginator;
 
+Paginator::useBootstrap();
 return [
 
     /*

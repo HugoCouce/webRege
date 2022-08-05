@@ -51,9 +51,10 @@
                             @endforeach
 
                         </tbody>
-
                     </table>
-
+                    <span>
+                        {{ $registros->links() }}
+                    </span>
                 </div>
             </div>
         </div>

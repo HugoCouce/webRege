@@ -71,6 +71,14 @@
 
                     </table>
 
+                    @if (Auth::user()->tipo=='Admin')
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <br><br>
+                            <a href="{{ url('registro') }}" class="d-flex justify-content-end">Revisar todos los registros</a>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

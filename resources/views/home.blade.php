@@ -29,7 +29,7 @@
 
                     <br><br>
 
-                    <table class="table table-light">
+                    <table class="table table-light text-center">
                         <thead class="thead-light">
                             <tr>
                                 <th>Usuario</th>
@@ -70,6 +70,9 @@
                         </tbody>
 
                     </table>
+                    <span>
+                        {{ $registros->links() }}
+                    </span>
 
                     @if (Auth::user()->tipo=='Admin')
                     <div class="row">

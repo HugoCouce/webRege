@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registro;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $datos['registros'] = Registro::paginate(10);        
+        $datos['registros'] = Registro::paginate(500);
         return view('home', $datos);
     }
 }

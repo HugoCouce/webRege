@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Total de registros') }}</div>
 
                 <div class="card-body">
-                    <table class="table table-light">
+                    <table class="table table-light text-center">
                         <thead class="thead-light">
                             <tr>
                                 <th>Id</th>

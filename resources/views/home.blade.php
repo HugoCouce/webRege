@@ -27,8 +27,6 @@
                     </div>
                     @endif
 
-                    Aqui saldrán los registros a su nombre.
-
                     <br><br>
 
                     <table class="table table-light">

@@ -16,18 +16,16 @@ use GuzzleHttp\Middleware;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
 /* Route::get('/', function () {
-    if (Auth::check()) {
-        return view('home');
-    } else {
-        return view('home');
-    }
+    return view('auth.login');
 }); */
 
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('home');
+    }
+    return view('auth.login');
+});
 
 Auth::routes();
 

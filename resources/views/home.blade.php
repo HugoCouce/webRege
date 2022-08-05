@@ -34,7 +34,7 @@
                             <tr>
                                 <th>Usuario</th>
                                 <th>REGE</th>
-                                <th>Tiempo</th>
+                                <th>Tiempo %</th>
                                 <th>Fecha (a/m/d)</th>
                                 <th>Operaciones</th>
                             </tr>
